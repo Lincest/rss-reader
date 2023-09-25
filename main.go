@@ -157,6 +157,7 @@ func updateFeeds() {
 }
 
 func updateFeed(fp *gofeed.Parser, url, formattedTime string) {
+	fp.UserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.40"
 	result, err := fp.ParseURL(url)
 	if err != nil {
 		log.Printf("Error fetching feed: %v | %v", url, err)
@@ -187,7 +188,7 @@ func updateFeed(fp *gofeed.Parser, url, formattedTime string) {
 	dbMap[url] = customFeed
 }
 
-//获取feeds列表
+// 获取feeds列表
 func getFeeds() []feed {
 	feeds := make([]feed, 0, len(rssUrls.Values))
 	for _, url := range rssUrls.Values {
@@ -204,8 +205,8 @@ func getFeeds() []feed {
 	return feeds
 }
 
-//获取关键词也就是title
-//获取feeds列表
+// 获取关键词也就是title
+// 获取feeds列表
 func getKeywords() string {
 	words := ""
 	for _, url := range rssUrls.Values {

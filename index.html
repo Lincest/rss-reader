@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RSS Reader</title>
-  <meta name="description" content='RSS Reader，一个将订阅信息聚合展示的开源web工具，便于了解近期关注的信息，同时页面数据数据也实现了自动刷新。'>
+  <meta name="description" content='RSS Reader'>
   <meta name="keywords" content="<< .Keywords >>">
   <meta name="anthor" content="srcrs">
   <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
@@ -21,11 +21,18 @@
     }
 
     .card-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
+      font-size: 15px;
       font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: left;
+      margin-bottom: 10px;
+      background: linear-gradient(to bottom, #3b3b3b, #3b3b3b);
+      color: white;
+      line-height: 2em;
+      border-radius: 6px;
+      padding: 0 0.5em;
     }
 
     .list-item {
@@ -51,9 +58,6 @@
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
     .feed-col {
       margin-bottom: 20px;
     }
@@ -110,7 +114,7 @@
                   <div slot="header" class="card-header">
                     <span>{{ feed.title }}</span>
                   </div>
-                  <el-scrollbar style="height: 300px;">
+                  <el-scrollbar style="height: 580px;">
                     <el-list v-for="(item, i) in feed.items" :key="i">
                       <el-list-item>
                         <div class="list-item-title">
@@ -128,9 +132,7 @@
         </el-row>
       </el-main>
       <el-footer>
-        <el-link href="https://github.com/srcrs/rss-reader" target="_blank">Rss-reader</el-link>
-        <span> | </span>
-        <el-link href="https://github.com/srcrs" target="_blank">By srcrs</el-link>
+        <el-link href="https://github.com/Lincest/rss-reader" target="_blank">Moreality's Rss Reader</el-link>
       </el-footer>
     </el-container>
   </div>
